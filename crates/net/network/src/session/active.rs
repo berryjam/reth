@@ -135,7 +135,7 @@ impl ActiveSession {
                     received: Instant::now(),
                 };
                 self.received_requests_from_remote.push(received);
-                self.try_emit_request(PeerMessage::NewBlockHashes(vec![]))
+                self.try_emit_request(PeerMessage::NewBlockHashes(vec![].into()))
                 .into()
             }};
         }
