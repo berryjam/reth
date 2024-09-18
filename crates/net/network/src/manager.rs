@@ -532,9 +532,9 @@ impl NetworkManager {
                     msg,
                 });
             }
-            PeerMessage::EthRequest(req) => {
-                self.on_eth_request(peer_id, req);
-            }
+            // PeerMessage::EthRequest(req) => {
+            //     self.on_eth_request(peer_id, req);
+            // }
             PeerMessage::ReceivedTransaction(msg) => {
                 self.notify_tx_manager(NetworkTransactionEvent::IncomingTransactions {
                     peer_id,
@@ -565,9 +565,9 @@ impl NetworkManager {
                 let msg = NewBlockMessage { hash, block: Arc::new(block) };
                 self.swarm.state_mut().announce_new_block(msg);
             }
-            NetworkHandleMessage::EthRequest { peer_id, request } => {
-                self.swarm.sessions_mut().send_message(&peer_id, PeerMessage::EthRequest(request))
-            }
+            // NetworkHandleMessage::EthRequest { peer_id, request } => {
+            //     self.swarm.sessions_mut().send_message(&peer_id, PeerMessage::EthRequest(request))
+            // }
             NetworkHandleMessage::SendTransaction { peer_id, msg } => {
                 self.swarm.sessions_mut().send_message(&peer_id, PeerMessage::SendTransactions(msg))
             }

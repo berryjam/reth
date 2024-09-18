@@ -119,7 +119,7 @@ impl NetworkHandle {
 
     /// Sends a [`PeerRequest`] to the given peer's session.
     pub fn send_request(&self, peer_id: PeerId, request: PeerRequest) {
-        self.send_message(NetworkHandleMessage::EthRequest { peer_id, request })
+        // self.send_message(NetworkHandleMessage::EthRequest { peer_id, request })
     }
 
     /// Send transactions hashes to the peer.
@@ -466,13 +466,13 @@ pub(crate) enum NetworkHandleMessage {
         /// The new pooled transaction hashes to send.
         msg: NewPooledTransactionHashes,
     },
-    /// Sends an `eth` protocol request to the peer.
-    EthRequest {
-        /// The peer to send the request to.
-        peer_id: PeerId,
-        /// The request to send to the peer's sessions.
-        request: PeerRequest,
-    },
+    // /// Sends an `eth` protocol request to the peer.
+    // EthRequest {
+    //     /// The peer to send the request to.
+    //     peer_id: PeerId,
+    //     /// The request to send to the peer's sessions.
+    //     request: PeerRequest,
+    // },
     /// Applies a reputation change to the given peer.
     ReputationChange(PeerId, ReputationChangeKind),
     /// Returns the client that can be used to interact with the network.

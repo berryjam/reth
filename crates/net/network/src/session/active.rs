@@ -135,11 +135,11 @@ impl ActiveSession {
                     received: Instant::now(),
                 };
                 self.received_requests_from_remote.push(received);
-                self.try_emit_request(PeerMessage::EthRequest(PeerRequest::$req_item {
-                    request,
-                    response: tx,
-                }))
-                .into()
+                // self.try_emit_request(PeerMessage::EthRequest(PeerRequest::$req_item {
+                //     request,
+                //     response: tx,
+                // }))
+                // .into()
             }};
         }
 
@@ -263,10 +263,10 @@ impl ActiveSession {
                     self.queued_outgoing.push_back(EthMessage::from(msg).into());
                 }
             }
-            PeerMessage::EthRequest(req) => {
-                let deadline = self.request_deadline();
-                self.on_internal_peer_request(req, deadline);
-            }
+            // PeerMessage::EthRequest(req) => {
+            //     let deadline = self.request_deadline();
+            //     self.on_internal_peer_request(req, deadline);
+            // }
             PeerMessage::SendTransactions(msg) => {
                 self.queued_outgoing.push_back(EthBroadcastMessage::Transactions(msg).into());
             }
