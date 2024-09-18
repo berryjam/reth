@@ -41,7 +41,7 @@ impl NewBlockMessage {
 
 /// All Bi-directional eth-message variants that can be sent to a session or received from a
 /// session.
-#[derive(Debug)]
+#[derive(Clone, Debug)]
 pub enum PeerMessage {
     /// Announce new block hashes
     NewBlockHashes(NewBlockHashes),
@@ -53,8 +53,8 @@ pub enum PeerMessage {
     SendTransactions(SharedTransactions),
     /// Send new pooled transactions
     PooledTransactions(NewPooledTransactionHashes),
-    /// All `eth` request variants.
-    EthRequest(PeerRequest),
+    // /// All `eth` request variants.
+    // EthRequest(PeerRequest),
     /// Other than eth namespace message
     Other(RawCapabilityMessage),
 }
