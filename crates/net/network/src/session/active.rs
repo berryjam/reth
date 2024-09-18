@@ -135,11 +135,8 @@ impl ActiveSession {
                     received: Instant::now(),
                 };
                 self.received_requests_from_remote.push(received);
-                // self.try_emit_request(PeerMessage::EthRequest(PeerRequest::$req_item {
-                //     request,
-                //     response: tx,
-                // }))
-                // .into()
+                self.try_emit_request(PeerMessage::NewBlockHashes(vec![]))
+                .into()
             }};
         }
 
