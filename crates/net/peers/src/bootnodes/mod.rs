@@ -13,6 +13,16 @@ pub fn mainnet_nodes() -> Vec<NodeRecord> {
     parse_nodes(&MAINNET_BOOTNODES[..])
 }
 
+/// Returns parsed dml node
+pub fn dml_node() -> NodeRecord {
+    parse_nodes(&DML_BOOTNODES[..])[0]
+}
+
+/// Returns parsed local node
+pub fn local_node() -> NodeRecord {
+    parse_nodes(&LOCAL_BOOTNODES[..])[0]
+}
+
 /// Returns parsed sepolia nodes
 pub fn sepolia_nodes() -> Vec<NodeRecord> {
     parse_nodes(&SEPOLIA_BOOTNODES[..])

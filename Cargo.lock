@@ -2834,6 +2834,7 @@ dependencies = [
  "reth-primitives",
  "secp256k1",
  "tokio",
+ "uuid",
 ]
 
 [[package]]

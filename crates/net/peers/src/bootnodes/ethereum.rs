@@ -22,3 +22,13 @@ pub static HOLESKY_BOOTNODES : [&str; 2] = [
     "enode://ac906289e4b7f12df423d654c5a962b6ebe5b3a74cc9e06292a85221f9a64a6f1cfdd6b714ed6dacef51578f92b34c60ee91e9ede9c7f8fadc4d347326d95e2b@146.190.13.128:30303",
     "enode://a3435a0155a3e837c02f5e7f5662a2f1fbc25b48e4dc232016e1c51b544cb5b4510ef633ea3278c0e970fa8ad8141e2d4d0f9f95456c537ff05fdf9b31c15072@178.128.136.233:30303",
 ];
+
+/// DML node
+pub static DML_BOOTNODES : [&str; 1] = [
+    "enode://0d9f90232ff8ffa2ba14e4d45d8b0bacc7293d8c2f93e18619fdae46e8aad5e179226d818200215bd9dd49036834e9cbd9a27d8865ece654ca8e81644fa084c3@34.87.21.99:30303", // dml node
+];
+
+/// Local node
+pub static LOCAL_BOOTNODES : [&str; 1] = [
+    "enode://60a22d372e5bad580a2d7084bc484f315784aec04dcebdf775f5d7d9ac6e60cc11dac0c45ba36596f69c7a0d9d723073ec032dd026f2016c17375edd352b59f9@127.0.0.1:30303", // local node
+];

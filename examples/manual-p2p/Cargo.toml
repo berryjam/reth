@@ -6,6 +6,7 @@ edition.workspace = true
 license.workspace = true
 
 [dependencies]
+uuid = { version = "1", features = ["v4"] }
 reth-chainspec.workspace = true
 reth-primitives.workspace = true
 reth-network.workspace = true

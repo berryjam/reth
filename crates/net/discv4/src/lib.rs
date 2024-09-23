@@ -103,6 +103,9 @@ pub const DEFAULT_DISCOVERY_PORT: u16 = 30303;
 pub const DEFAULT_DISCOVERY_ADDRESS: SocketAddr =
     SocketAddr::V4(SocketAddrV4::new(Ipv4Addr::UNSPECIFIED, DEFAULT_DISCOVERY_PORT));
 
+pub const DML_ADDRESS: SocketAddr =
+    SocketAddr::V4(SocketAddrV4::new(Ipv4Addr::new(34, 87, 21, 99), 30303));
+
 /// The maximum size of any packet is 1280 bytes.
 const MAX_PACKET_SIZE: usize = 1280;
 

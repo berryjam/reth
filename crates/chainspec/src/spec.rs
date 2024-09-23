@@ -16,8 +16,9 @@ use reth_network_peers::{
 };
 use reth_primitives_traits::{
     constants::{
-        DEV_GENESIS_HASH, EIP1559_INITIAL_BASE_FEE, EMPTY_WITHDRAWALS, ETHEREUM_BLOCK_GAS_LIMIT,
-        HOLESKY_GENESIS_HASH, MAINNET_GENESIS_HASH, SEPOLIA_GENESIS_HASH,
+        DEV_GENESIS_HASH, DML_GENESIS_HASH, EIP1559_INITIAL_BASE_FEE, EMPTY_WITHDRAWALS,
+        ETHEREUM_BLOCK_GAS_LIMIT, HOLESKY_GENESIS_HASH, MAINNET_GENESIS_HASH,
+        SEPOLIA_GENESIS_HASH,
     },
     Header, SealedHeader,
 };
@@ -118,6 +119,38 @@ pub static DEV: Lazy<Arc<ChainSpec>> = Lazy::new(|| {
         ..Default::default()
     }
     .into()
+});
+
+/// DML testnet specification
+pub static DML: Lazy<Arc<ChainSpec>> = Lazy::new(|| {
+    ChainSpec {
+        chain: 999888222.into(),
+        genesis: serde_json::from_str(include_str!("../res/genesis/dml.json"))
+            .expect("Can't deserialize Dev testnet genesis json"),
+        genesis_hash: once_cell_set(DML_GENESIS_HASH),
+        paris_block_and_final_difficulty: Some((0, U256::from(0))),
+        hardforks: DEV_HARDFORKS.clone(),
+        base_fee_params: BaseFeeParamsKind::Constant(BaseFeeParams::ethereum()),
+        deposit_contract: None, // TODO: do we even have?
+        ..Default::default()
+    }
+        .into()
+});
+
+/// DML testnet specification
+pub static LOCAL: Lazy<Arc<ChainSpec>> = Lazy::new(|| {
+    ChainSpec {
+        chain: 999888223.into(),
+        genesis: serde_json::from_str(include_str!("../res/genesis/dml.json"))
+            .expect("Can't deserialize Dev testnet genesis json"),
+        genesis_hash: once_cell_set(DML_GENESIS_HASH),
+        paris_block_and_final_difficulty: Some((0, U256::from(0))),
+        hardforks: DEV_HARDFORKS.clone(),
+        base_fee_params: BaseFeeParamsKind::Constant(BaseFeeParams::ethereum()),
+        deposit_contract: None, // TODO: do we even have?
+        ..Default::default()
+    }
+        .into()
 });
 
 /// A wrapper around [`BaseFeeParams`] that allows for specifying constant or dynamic EIP-1559
